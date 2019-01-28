@@ -3,3 +3,5 @@
 
 
 let testingCount = 0;
+
+console.log(testingCount+1)
