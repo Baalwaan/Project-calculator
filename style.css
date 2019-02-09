@@ -1,0 +1,32 @@
+#calculator{
+	position: relative;
+	width: 12rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+output{
+	position: relative;
+	border-radius: 5%;
+	border: solid black 1px;
+	width: 90%;
+	height: 1rem;
+}
+
+
+
+section{
+	position: relative;
+	bottom: 0;
+}
+
+button{
+	margin: auto;
+	width: 25%;
+}
+
+/*#zero{width: 50%;
+
+}*/
+
