@@ -1,32 +1,63 @@
 #calculator{
 	position: relative;
-	width: 12rem;
+	width: 300px;
+	height: 400px;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around; 
+	margin: auto;
+	border: solid black 1px;
+	padding: 15px;
+	border-radius: 3%;
+	background: darkblue;
 }
-
+/*screen output*/
 
 output{
 	position: relative;
 	border-radius: 5%;
 	border: solid black 1px;
-	width: 90%;
-	height: 1rem;
+	width: 95%;
+	height: 2.5rem;
+	background: white;
 }
 
-
-
-section{
-	position: relative;
-	bottom: 0;
+/*button rows*/
+.rows{
+	
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 button{
-	margin: auto;
 	width: 25%;
+	height: 100%;
+	/*border-radius: 5%;*/
+	border: solid #948E89;
+	background: #CBCBCB
 }
 
-/*#zero{width: 50%;
+/*button zero and clear sized bigger than other buttons to fill space*/
+#zero, #clear{
+	width: 50%;
+}
 
-}*/
+#clear{
+	background: #D50412;
+	font-weight: bolder;
+	font-size: 1em;
+}
+
+#subtract, #add, #equals, #multiply, #divide, #percentage{
+	background: #5D5858;
+	font-weight: bolder;
+	color: white;
+}
+
+#decimal{
+	background: #F68607;
+	font-weight: bolder;
+	font-size: 1em;
+}
 
