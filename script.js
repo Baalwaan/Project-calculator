@@ -4,6 +4,7 @@ let screen = document.getElementsByTagName('output')[0];
 let num1 = '';
 let num2 = '';
 let total;
+let operatorSign;
 
 
 // nodelist is array like
@@ -15,11 +16,15 @@ let arr = [...numbers];
 let clearBtn = document.getElementById('clear');
 
 
+let operator = document.getElementsByClassName('operator');
+
+let arrOperator = [...operator];
+
 
 let showNumber = function(){
-	// if(screen.innerText.length >= 10){alert('no more input!')}
+
 	screen.innerText += this.value;
-	num1 = screen.innerText;
+	num1 = screen.innerText;	
 }
 
 let clearScreen = function(){
@@ -27,17 +32,31 @@ let clearScreen = function(){
 
 }
 
+
+let setOperatorSign = function(){
+	operatorSign = this.value;
+}
+
+
 let addEvent = function(index){
-	numbers[index].addEventListener('click', showNumber)
+	if(arr[index].classList.contains('numbers')){
+	arr[index].addEventListener('click', showNumber)}
+}
+
+
+let operatorEvent = function(index){
+	
+	arrOperator[index].addEventListener('click', setOperatorSign)
 }
 
 
 // iterates through each button to give it the ability to listen
-arr.forEach(function(number){
-	addEvent(arr.indexOf(number));
-})
+arr.forEach(number =>
+	addEvent(arr.indexOf(number)))
+
+arrOperator.forEach(number =>
+ operatorEvent(arrOperator.indexOf(number)));
+
+
 
 clearBtn.addEventListener('click', clearScreen)
-
-
-
