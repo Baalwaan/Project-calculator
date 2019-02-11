@@ -1,10 +1,9 @@
 let screen = document.getElementsByTagName('output')[0];
 
 
-let num1 = '';
-let num2 = '';
-let total;
-let operatorSign;
+let num = '';
+let total = 0;
+let operatorSign = '';
 
 
 // nodelist is array like
@@ -20,21 +19,28 @@ let operator = document.getElementsByClassName('operator');
 
 let arrOperator = [...operator];
 
+let equals = document.getElementById('equals');
+
 
 let showNumber = function(){
 
-	screen.innerText += this.value;
-	num1 = screen.innerText;	
-}
+		screen.innerText += this.value;
+		num = screen.innerText;
 
+}
 let clearScreen = function(){
 	screen.innerText = '0';
+	total = 0;
 
 }
 
 
 let setOperatorSign = function(){
 	operatorSign = this.value;
+	clearScreen();
+	total = Number(num);
+	num = '';
+
 }
 
 
@@ -50,6 +56,15 @@ let operatorEvent = function(index){
 }
 
 
+let calculate = function(){
+
+
+	total = eval(total + operatorSign + Number(num))
+	screen.innerText = total;
+
+}
+
+
 // iterates through each button to give it the ability to listen
 arr.forEach(number =>
 	addEvent(arr.indexOf(number)))
@@ -60,3 +75,11 @@ arrOperator.forEach(number =>
 
 
 clearBtn.addEventListener('click', clearScreen)
+
+
+
+equals.addEventListener('click', calculate)
+
+
+
+
