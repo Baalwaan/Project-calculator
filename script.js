@@ -3,17 +3,17 @@ let screen = document.getElementsByTagName('output')[0];
 
 let num1 = '';
 let num2 = '';
+let total;
 
 
 // nodelist is array like
 let numbers = document.getElementsByClassName('numbers');
 
-let clearBtn = document.getElementById('clear');
-
-
-
 // below turns numbers into a real array
 let arr = [...numbers];
+
+let clearBtn = document.getElementById('clear');
+
 
 
 let showNumber = function(){
