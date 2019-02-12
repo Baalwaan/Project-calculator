@@ -1,85 +1,45 @@
-let screen = document.getElementsByTagName('output')[0];
+let output;
+currentNum = '';
 
 
-let num = '';
-let total = 0;
-let operatorSign = '';
+display = document.getElementById('display');
+// this is an array like object
+numbers = document.querySelectorAll('.numbers');
+// turns numbers into a real array so we can add events
+// numbers = [...numbers];
+
+operators = document.querySelectorAll('.operator');
 
 
-// nodelist is array like
-let numbers = document.getElementsByClassName('numbers');
-
-// below turns numbers into a real array
-let arr = [...numbers];
-
-let clearBtn = document.getElementById('clear');
+calculate = document.getElementById('equals').addEventListener('click', function(){
+display.innerHTML = eval(display);
+})
 
 
-let operator = document.getElementsByClassName('operator');
+let showOnScreen = function(){
 
-let arrOperator = [...operator];
+currentNum = this.value
 
-let equals = document.getElementById('equals');
+if(display.innerHTML == 0 && currentNum == 0){''}
 
-
-let showNumber = function(){
-
-		screen.innerText += this.value;
-		num = screen.innerText;
-
+else if(display.innerHTML == 0 && currentNum > 0){
+	display.innerHTML = '';
+	output = display.innerHTML+= currentNum
 }
-let clearScreen = function(){
-	screen.innerText = '0';
-	total = 0;
+
+else{output = display.innerHTML+= currentNum}
+
 
 }
 
 
-let setOperatorSign = function(){
-	operatorSign = this.value;
-	clearScreen();
-	total = Number(num);
-	num = '';
+
+let operatorFunc = function{
+currentNum = '';
+
 
 }
 
 
-let addEvent = function(index){
-	if(arr[index].classList.contains('numbers')){
-	arr[index].addEventListener('click', showNumber)}
-}
-
-
-let operatorEvent = function(index){
-	
-	arrOperator[index].addEventListener('click', setOperatorSign)
-}
-
-
-let calculate = function(){
-
-
-	total = eval(total + operatorSign + Number(num))
-	screen.innerText = total;
-
-}
-
-
-// iterates through each button to give it the ability to listen
-arr.forEach(number =>
-	addEvent(arr.indexOf(number)))
-
-arrOperator.forEach(number =>
- operatorEvent(arrOperator.indexOf(number)));
-
-
-
-clearBtn.addEventListener('click', clearScreen)
-
-
-
-equals.addEventListener('click', calculate)
-
-
-
-
+numbers.forEach(e=>e.addEventListener('click', showOnScreen))
+operators.forEach(e=>e.addEventListener('click', showOnScreen))
