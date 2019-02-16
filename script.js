@@ -1,7 +1,3 @@
-let output;
-currentNum = '';
-
-
 display = document.getElementById('display');
 numbers = document.querySelectorAll('.numbers');
 operators = document.querySelectorAll('.operator');
@@ -14,57 +10,57 @@ display.innerHTML = eval(display.innerHTML).toFixed(2);
 decimal = document.getElementById('decimal').addEventListener('click', decimalFunc);
 
 clear = document.getElementById('clear').addEventListener('click', function(){
-	resetCurrentNum();
+	// resetCurrentNum();
+	arr = [0];
 	display.innerHTML = '0'})
 
 
-
+var arr = [0];
 
 
 
 let showOnScreen = function(){
-if(currentNum.match(/\W+/g)) {
-	resetCurrentNum();
-}
 // when 0 is on screen and user presses 0 it does not do anything
-if(display.innerHTML == 0 && this.value == 0){console.log('am zero')}
-// current number checker
-if(currentNum == 0 && this.value == 0){console.log('I am also a zero')}
-// in initial stge when 0 is showing and user presses a number it removes the 0 first
+if(display.innerHTML == 0 && this.value == 0){
+	console.log('am zero')
+		}
 
+// in initial stge when 0 is showing and user presses a number it removes the 0 first
 else if(display.innerHTML == 0 && this.value > 0){
 	
-	display.innerHTML='';
-	currentNum+=this.value;
-	display.innerHTML+=this.value;
+	clearDisplay();
+	arr.shift();
+	arr.push(this.value);
+	display.innerHTML = arr.join('');
 }
 // just adds number to current number
 else{
-	currentNum+=this.value
-	display.innerHTML+= this.value;
+	
+	clearDisplay();
+	arr.push(this.value);
+	display.innerHTML+= arr.join('')
+		}
 }
 
-}
-
-
-
-function resetCurrentNum(){
-	currentNum = '';
-
-}
 let operatorFunc = function(){
+clearDisplay();
 
-	if(display.innerHTML[display.innerHTML.length-1].match(/\W+/g)){
-		display.innerHTML = display.innerHTML.replace(display.innerHTML[display.innerHTML.length-1], this.value)
+	if(arr[arr.length-1].match(/\W+/g)){
 		
-
-	}
+		arr.splice(-1, 1, this.value);		
+		display.innerHTML = arr.join('');
+			}
 
 	else{
-		currentNum+= this.value;
-		display.innerHTML+=this.value;
 
-	}
+		arr.push(this.value);	
+		display.innerHTML+= arr.join('');
+			}
+}
+
+
+function clearDisplay(){
+	display.innerHTML = '';
 }
 
 
@@ -84,8 +80,6 @@ function decimalFunc(){
 	display.innerHTML;
 
 }
-
-
 
 
 
