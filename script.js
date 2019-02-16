@@ -8,7 +8,7 @@ operators = document.querySelectorAll('.operator');
 
 
 equals = document.getElementById('equals').addEventListener('click', function(){
-display.innerHTML = eval(display.innerHTML);
+display.innerHTML = eval(display.innerHTML).toFixed(2);
 })
 
 decimal = document.getElementById('decimal').addEventListener('click', decimalFunc);
