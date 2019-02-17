@@ -1,6 +1,7 @@
 let total = 0;
 let currentNum = '';
 let  arr = [0];
+let powerOn = true;
 
 let display = document.getElementById('display');
 
@@ -8,14 +9,18 @@ let display = document.getElementById('display');
 let numberBtns = document.querySelectorAll('.numbers');
 let operatorBtns = document.querySelectorAll('.operator');
 let equalsBtn = document.querySelector('#equals')
+
 let clearBtn = document.querySelector('#clear').addEventListener('click', () =>{
+	if (powerOn){
 	resetCurrentNum();
 	display.innerHTML = '0';
 	arr = [0];
-	total = 0;
+	total = 0;}
+
+	else{/* do nothing and screen remains blank} */}
 });
 
-var powerOn = true;
+
 
 let powerBtn = document.querySelector('#power').addEventListener('click', ()=>{
 	resetCurrentNum();
