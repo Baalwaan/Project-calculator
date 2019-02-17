@@ -8,7 +8,8 @@ let display = document.getElementById('display');
 // buttons
 let numberBtns = document.querySelectorAll('.numbers');
 let operatorBtns = document.querySelectorAll('.operator');
-let equalsBtn = document.querySelector('#equals')
+let equalsBtn = document.querySelector('#equals');
+let decimalBtn = document.querySelector('#decimal');
 
 let clearBtn = document.querySelector('#clear').addEventListener('click', () =>{
 	if (powerOn){
@@ -99,6 +100,7 @@ if(powerOn){
 		}
 
 	else{
+		console.log('gi')
 		clearDisplay();
 		currentNum += e.currentTarget.value;
 		arr.push(e.currentTarget.value);
@@ -130,3 +132,5 @@ numberBtns.forEach(e=>e.addEventListener('click', showNumFunc, false));
 operatorBtns.forEach(e=>e.addEventListener('click', operatorFunc, false));
 
 equalsBtn.addEventListener('click', calculate);
+
+decimalBtn.addEventListener('click', decimalFunc);
