@@ -62,3 +62,7 @@ button{
 	font-size: 1em;
 }
 
+#power{
+	background: green;
+	font-weight: bolder;
+}

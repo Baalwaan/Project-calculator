@@ -15,11 +15,28 @@ let clearBtn = document.querySelector('#clear').addEventListener('click', () =>{
 	total = 0;
 });
 
+var powerOn = true;
+
+let powerBtn = document.querySelector('#power').addEventListener('click', ()=>{
+	resetCurrentNum();
+	arr = [0];
+
+	if(powerOn){
+		powerOn = false
+		display.innerHTML = '';
+		
+	}
+	else{
+		powerOn = true;
+		display.innerHTML = '0';
+	}
+})
 // functions
 const clearDisplay = () => display.innerHTML = '';
 const resetCurrentNum = () => currentNum = '';
 
 const showNumFunc = (e) => {
+
 // when 0 is on screen and user presses 0 it does not do anything
 if(display.innerHTML == 0 && e.currentTarget.value == 0){
 	console.log('Hi, am zero')
@@ -84,8 +101,8 @@ display.innerHTML = (total).toString();
 
 
 //eventListeners
-numberBtns.forEach(e=>e.addEventListener('click', showNumFunc));
+numberBtns.forEach(e=>e.addEventListener('click', showNumFunc, false));
 
-operatorBtns.forEach(e=>e.addEventListener('click', operatorFunc));
+operatorBtns.forEach(e=>e.addEventListener('click', operatorFunc, false));
 
 equalsBtn.addEventListener('click', calculate);
