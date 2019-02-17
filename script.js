@@ -19,62 +19,62 @@ let clearBtn = document.querySelector('#clear').addEventListener('click', () =>{
 const clearDisplay = () => display.innerHTML = '';
 const resetCurrentNum = () => currentNum = '';
 
-const showNumFunc = function(){
+const showNumFunc = (e) => {
 // when 0 is on screen and user presses 0 it does not do anything
-if(display.innerHTML == 0 && this.value == 0){
+if(display.innerHTML == 0 && e.currentTarget.value == 0){
 	console.log('Hi, am zero')
 		}
 
 // in initial stge when 0 is showing and user presses a number it removes the 0 first
-else if(display.innerHTML == 0 && this.value > 0){
+else if(display.innerHTML == 0 && e.currentTarget.value > 0){
 	
-	currentNum += this.value;
+	currentNum += e.currentTarget.value;
 	clearDisplay();
-	arr.shift(), arr.push(this.value);
+	arr.shift(), arr.push(e.currentTarget.value);
 	display.innerHTML = arr.join('');
 
 }
 // just adds number to current number
 else{
-	currentNum += this.value;
+	currentNum += e.currentTarget.value;
 	clearDisplay();
-	arr.push(this.value);
+	arr.push(e.currentTarget.value);
 	display.innerHTML+= arr.join('')
 		}
 };
 
-const operatorFunc = function(){
+const operatorFunc = (e) => {
 resetCurrentNum();
 clearDisplay();
 	
 	//if last character in display matches a special character(operator characters) it will be overriden by the new operator character user pressed 
 	if(arr[arr.length-1].match(/\W+/g)){		
-		arr.splice(-1, 1, this.value);		
+		arr.splice(-1, 1, e.currentTarget.value);		
 		display.innerHTML = arr.join('');			}
 
 	else{
-		arr.push(this.value);
+		arr.push(e.currentTarget.value);
 		display.innerHTML+= arr.join('');
 			}
 };
 
 
-const decimalFunc = function(){
-	// checks to see if current number has a decimal. if it has it will alert user about this.
-	if(currentNum.includes(this.value)){
+const decimalFunc = (e) => {
+	// checks to see if current number has a decimal. if it has it will alert user about e.currentTarget.
+	if(currentNum.includes(e.currentTarget.value)){
 		alert('You already have a decimal in your number!')
 		}
 
 	else{
 		clearDisplay();
-		currentNum += this.value;
-		arr.push(this.value);
+		currentNum += e.currentTarget.value;
+		arr.push(e.currentTarget.value);
 		display.innerHTML = arr.join('');
 		
 			}
 	};
 
-const calculate = function(){
+const calculate = () => {
 resetCurrentNum();
 total = eval(display.innerHTML);
 console.log(total);
