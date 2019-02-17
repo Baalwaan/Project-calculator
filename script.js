@@ -36,6 +36,7 @@ const clearDisplay = () => display.innerHTML = '';
 const resetCurrentNum = () => currentNum = '';
 
 const showNumFunc = (e) => {
+	if(powerOn){
 
 // when 0 is on screen and user presses 0 it does not do anything
 if(display.innerHTML == 0 && e.currentTarget.value == 0){
@@ -58,9 +59,14 @@ else{
 	arr.push(e.currentTarget.value);
 	display.innerHTML+= arr.join('')
 		}
+		}
+
+		else{/* do nothing and screen remains blank} */}
 };
 
 const operatorFunc = (e) => {
+
+	if(powerOn){
 resetCurrentNum();
 clearDisplay();
 	
@@ -73,10 +79,15 @@ clearDisplay();
 		arr.push(e.currentTarget.value);
 		display.innerHTML+= arr.join('');
 			}
+		}
+
+		else{/* do nothing and screen remains blank} */}
+
 };
 
 
 const decimalFunc = (e) => {
+if(powerOn){
 	// checks to see if current number has a decimal. if it has it will alert user about e.currentTarget.
 	if(currentNum.includes(e.currentTarget.value)){
 		alert('You already have a decimal in your number!')
@@ -89,14 +100,22 @@ const decimalFunc = (e) => {
 		display.innerHTML = arr.join('');
 		
 			}
+}
+
+					else{/* do nothing and screen remains blank} */}
+
 	};
 
 const calculate = () => {
+	if (powerOn){
 resetCurrentNum();
 total = eval(display.innerHTML);
 console.log(total);
 arr = (total).toString().split('');
 display.innerHTML = (total).toString();
+}
+		else{/* do nothing and screen remains blank} */}
+
 };
 
 
