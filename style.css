@@ -11,16 +11,31 @@
 	border-radius: 3%;
 	background: darkblue;
 }
-/*screen output*/
 
-output{
+/*Calculator Screen */
+#screen{
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	border-radius: 5%;
 	border: solid black 1px;
 	width: 95%;
-	height: 2.5rem;
-	background: white;
-	padding-top: 15px;
+	height: 3.5rem;
+	background: white;	
+}
+
+#total{
+	background: #F3E7E7;
+	width: 100%;
+	height: 55%;
+	font-size: 1.25rem;
+	padding-top: 5px;
+}
+
+#display{
+	width: 100%;
+	height: 45%;
+	padding-top: 5px;
 }
 
 /*button rows*/
