@@ -129,6 +129,9 @@ const calculate = () => {
 resetCurrentNum();
 equalPressed = true;
 total =  eval(display.innerHTML);
+
+total.toString().includes('.') ? total = total.toFixed(2) : '';
+
 console.log(total);
 arr = (total).toString().split('');
 display.innerHTML = (total).toString();
