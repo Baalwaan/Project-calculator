@@ -130,7 +130,7 @@ resetCurrentNum();
 equalPressed = true;
 total =  eval(display.innerHTML);
 
-total.toString().includes('.') ? total = total.toFixed(2) : '';
+total.toString().includes('.') ? total = total.toFixed(4) : '';
 
 console.log(total);
 arr = (total).toString().split('');
