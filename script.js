@@ -63,7 +63,7 @@ const showNumFunc = (e) => {
 	}
 
 // when 0 is on screen and user presses 0 it does not do anything
-	if(display.innerHTML == 0 && e.currentTarget.value == 0){
+	if(display.innerHTML == 0 && e.currentTarget.value == 0 || currentNum == '0' && e.currentTarget.value == 0){
 	console.log('Hi, am zero')
 		}
 
