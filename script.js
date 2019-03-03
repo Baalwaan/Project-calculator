@@ -47,15 +47,20 @@ const powerFunc =()=>{
 	}
 }
 
-const clearDisplay = () => {console.log('cleared'); display.innerHTML = '';}
+const clearDisplay = () => {
+	// console.log('cleared'); 
+	display.innerHTML = '';
+}
+
 const resetCurrentNum = () => currentNum = '';
 
 const showNumFunc = (e) => {
 	if(powerOn){
 
 	if(display.innerHTML == totalDisplay.value && equalPressed){
-		clearBtnFunc()
-		console.log('you been cleared')}
+		clearBtnFunc();
+		// console.log('you been cleared');
+	}
 
 // when 0 is on screen and user presses 0 it does not do anything
 	if(display.innerHTML == 0 && e.currentTarget.value == 0){
@@ -111,7 +116,6 @@ if(powerOn){
 		}
 
 	else{
-		console.log('gi')
 		clearDisplay();
 		currentNum += e.currentTarget.value;
 		arr.push(e.currentTarget.value);
